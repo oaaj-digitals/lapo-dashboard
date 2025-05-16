@@ -32,8 +32,8 @@ export function Sidebar({ active }: Props) {
 
   return (
     <div className="h-screen hidden border-r bg-[#e6f0fa] md:block md:w-64">
-      <div className="flex h-full flex-col pt-4 gap-4">
-        <div className="flex h-14 items-center border-b px-4 ">
+      <div className="flex h-full flex-col pt-4 gap-3">
+        <div className="flex h-14 items-center border-b px-4">
           <Link
             href="/"
             className="flex items-center gap-2 font-semibold w-full justify-center"
@@ -46,22 +46,26 @@ export function Sidebar({ active }: Props) {
           </Link>
         </div>
 
-        <h2 className="px-4 text-xs font-semibold tracking-tight text-muted-foreground">
-          MAIN MENU
-        </h2>
+        <div className="px-4 flex flex-col gap-3 justify-start">
+          <Button
+            variant={selected === "dashboard" ? "secondary" : "ghost"}
+            className={cn(
+              "flex w-full items-center justify-start gap-2",
+              selected === "dashboard" && "bg-accent"
+            )}
+          >
+            <Home className="h-4 w-4" />
+            Dashboard
+          </Button>
+
+          <h2 className="px-4 text-xs font-semibold tracking-tight text-muted-foreground">
+            MAIN MENU
+          </h2>
+        </div>
 
         <div className={`flex-1 overflow-y-auto ${styles.navList}`}>
           <nav className="grid gap-1 px-2 py-4">
-            <Button
-              variant={selected === "dashboard" ? "secondary" : "ghost"}
-              className={cn(
-                "flex w-full items-center justify-start gap-2",
-                selected === "dashboard" && "bg-accent"
-              )}
-            >
-              <Home className="h-4 w-4" />
-              Dashboard
-            </Button>
+
             <Button
               variant="ghost"
               className="flex w-full items-center justify-start gap-2"
@@ -149,7 +153,7 @@ export function Sidebar({ active }: Props) {
           </nav>
         </div>
 
-        <div className="mt-auto p-4">
+        <div className="mt-auto px-4 pb-4 ">
           <div className="flex flex-col">
             <div className="text-xs text-muted-foreground mb-2 w-full">POWERED BY</div>
             <div className="flex gap-2 w-full">
