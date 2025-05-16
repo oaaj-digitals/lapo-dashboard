@@ -1,103 +1,149 @@
+'use client';
+
+import img3 from "@/assets/imgs/image 3.png";
+import img5 from "@/assets/imgs/image 5.png";
+import logo from "@/assets/imgs/logo.svg";
+import { Button } from "@/components/ui/button";
+import { Eye, Lock, User } from "lucide-react";
 import Image from "next/image";
+import { redirect } from "next/navigation";
+
+const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  redirect('/dashboard');
+};
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+    <div className="flex min-h-screen max-h-fit p-4">
+      {/* Left side - Login Form */}
+      <div className=" w-1/2 flex-1 flex flex-col justify-between px-12 py-10 overflow-x-auto">
+        <div className="flex flex-col gap-8">
+          <div >
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src={logo}
+              alt="LAPO Logo"
+              width={125}
+              height={40}
+              className="h-auto"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          </div>
+
+          <div className="max-w-md">
+            <h1 className="text-3xl font-bold mb-2">Hi, Welcome Back!</h1>
+            <p className="text-gray-600 mb-8">
+              Please sign in using your credentials.
+            </p>
+
+            <form className="space-y-6" onSubmit={handleSubmit}>
+              <div className="space-y-2">
+                <label
+                  htmlFor="username"
+                  className="block font-medium"
+                >
+                  Username
+                </label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
+                    <User className="h-5 w-5 text-gray-400" />
+                  </div>
+                  <input
+                    id="username"
+                    type="text"
+                    placeholder="Enter your username"
+                    className="pl-10 pr-3 py-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <label
+                  htmlFor="password"
+                  className="block font-medium"
+                >
+                  Password
+                </label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
+                    <Lock className="h-5 w-5 text-gray-400" />
+                  </div>
+                  <input
+                    id="password"
+                    type="password"
+                    placeholder="Enter your password"
+                    className="pl-10 pr-10 py-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                  <div className="absolute inset-y-0 right-3 flex items-center">
+                    <Eye className="h-5 w-5 text-gray-400 cursor-pointer" />
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex justify-between items-center">
+                <button className="text-gray-600 hover:text-blue-600 text-sm">
+                  Forgot password
+                </button>
+              </div>
+
+              <div className="flex items-center space-x-2">
+                <input type="checkbox" id="remember" />
+                <label
+                  htmlFor="remember"
+                  className="text-sm text-gray-600"
+                >
+                  Remember me
+                </label>
+              </div>
+
+              <Button type="submit" className="cursor-pointer w-full bg-blue-700 hover:bg-blue-800 text-white py-3 rounded-md">
+                Login
+              </Button>
+            </form>
+          </div>
+
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+        <div className="text-gray-500 text-sm">
+          &copy; 2024 Mercator Technologies Ltd. All rights reserved.
+        </div>
+      </div>
+
+      {/* Right side - Dashboard Preview */}
+      <div className=" w-1/2 flex-1 bg-blue-50 pt-[7rem] relative overflow-hidden">
+        <div className="absolute -top-0 -left-0 -translate-1/2 w-36 h-36 border-[1.5rem] border-blue-700 rounded-full px-12 " />
+
+        <div className=" h-full relative z-10 max-w-full mx-auto flex flex-col gap-8 px-12">
+          <div className="w-full flex flex-col gap-4">
+            <h2 className="text-3xl font-bold ">
+              The simplest way to manage your cards
+            </h2>
+            <p className="text-gray-600 ">
+              Enter your credentials to access your account
+            </p>
+          </div>
+
+          <div className="w-full h-full">
+            <Image
+              src={img5}
+              alt={""}
+              className="h-full w-auto object-cover relative left-1/8 mt-8"
+            />
+
+
+
+            <Image
+              src={img3}
+              alt={""}
+              className="absolute h-auto w-1/3 top-1/2 "
+            />
+          </div>
+
+        </div>
+
+        <div
+          className=" z-30 w-full h-1/3 absolute bottom-0 bg-gradient-to-t from-[#F4F9FF] via-[#f4f9ffe8] to-[#f4f9ff0e]"
+        />
+      </div>
     </div>
   );
 }
