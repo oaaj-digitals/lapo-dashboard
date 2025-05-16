@@ -1,6 +1,6 @@
-import type React from "react"
-import { ArrowUpIcon } from "lucide-react"
-import { Card, CardContent } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card";
+import { ArrowUpIcon } from "lucide-react";
+import type React from "react";
 
 export function AnalyticsCards() {
   const analyticsData = [
@@ -36,12 +36,12 @@ export function AnalyticsCards() {
       icon: <AlertIcon className="h-5 w-5 text-amber-500" />,
       changeColor: "text-amber-500",
     },
-  ]
+  ];
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
       {analyticsData.map((item, index) => (
-        <Card key={index}>
+        <Card key={index} className="shadow-2xs">
           <CardContent className="p-6">
             <div className="flex items-center gap-2 mb-2">
               {item.icon}
@@ -59,7 +59,7 @@ export function AnalyticsCards() {
         </Card>
       ))}
     </div>
-  )
+  );
 }
 
 function CreditCardIcon(props: React.SVGProps<SVGSVGElement>) {
@@ -79,7 +79,7 @@ function CreditCardIcon(props: React.SVGProps<SVGSVGElement>) {
       <rect width="20" height="14" x="2" y="5" rx="2" />
       <line x1="2" x2="22" y1="10" y2="10" />
     </svg>
-  )
+  );
 }
 
 function ChartIcon(props: React.SVGProps<SVGSVGElement>) {
@@ -99,7 +99,7 @@ function ChartIcon(props: React.SVGProps<SVGSVGElement>) {
       <path d="M3 3v18h18" />
       <path d="m19 9-5 5-4-4-3 3" />
     </svg>
-  )
+  );
 }
 
 function AlertIcon(props: React.SVGProps<SVGSVGElement>) {
@@ -120,5 +120,5 @@ function AlertIcon(props: React.SVGProps<SVGSVGElement>) {
       <line x1="12" x2="12" y1="9" y2="13" />
       <line x1="12" x2="12.01" y1="17" y2="17" />
     </svg>
-  )
+  );
 }

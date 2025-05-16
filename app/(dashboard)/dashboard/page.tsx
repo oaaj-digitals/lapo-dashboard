@@ -72,8 +72,8 @@ export default function Dashboard() {
           </div>
         </header>
 
-        <main className="p-4 md:p-6">
-          <div className="flex flex-col gap-6">
+        <main className="p-4 md:p-6 bg-[#F1F7FF]">
+          <div className="flex flex-col gap-6 ">
             <div className="flex flex-col gap-2">
               <div className="flex justify-between items-center">
                 <div>
@@ -105,7 +105,7 @@ export default function Dashboard() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Card>
+              <Card className="shadow-2xs">
                 <CardContent className="p-6">
                   <div className="flex justify-between items-center mb-6">
                     <h3 className="text-lg font-semibold">Monthly Issuance</h3>
@@ -132,7 +132,7 @@ export default function Dashboard() {
                 </CardContent>
               </Card>
 
-              <Card>
+              <Card className="shadow-2xs">
                 <CardContent className="p-6">
                   <div className="flex justify-between items-center mb-6">
                     <h3 className="text-lg font-semibold">Recent Card Requests</h3>
@@ -159,7 +159,7 @@ export default function Dashboard() {
                 </CardContent>
               </Card>
 
-              <Card>
+              <Card className="shadow-2xs">
                 <CardContent className="p-6">
                   <div className="flex justify-between items-center mb-6">
                     <h3 className="text-lg font-semibold">This Week&apos;s Income</h3>
@@ -186,7 +186,7 @@ export default function Dashboard() {
                 </CardContent>
               </Card>
 
-              <Card>
+              <Card className="shadow-2xs">
                 <CardContent className="p-6">
                   <div className="flex justify-between items-center mb-6">
                     <h3 className="text-lg font-semibold">Card Status Distribution</h3>
